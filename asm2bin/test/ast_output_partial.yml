@@ -1,0 +1,26 @@
+--- !ruby/object:ASM2Bin::AST::Program
+labels:
+  :label: 1
+symbols:
+  :constant1: 65517
+  :constant2: 100000.0
+  :constant3: 511
+  :constant4: 64
+  :constant5: symbol
+  :constant6: String
+instructions:
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jmp
+  left: :label
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: 65535
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction
+  type: :nop

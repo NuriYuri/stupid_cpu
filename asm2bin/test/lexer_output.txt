@@ -1,0 +1,50 @@
+<t:multi_line_comment @1:1 /*
+  This is the input for the lexer,
+  it checks that all tokens are generated properly
+*/>
+<t:comment @6:1 // First we start with all instructions>
+<t:keyword @7:1 mov> <t:identifier @7:5 a> <t:comma @7:6> <t:identifier @7:8 b>
+<t:keyword @8:1 or> <t:identifier @8:4 a> <t:comma @8:5> <t:identifier @8:7 b>
+<t:keyword @9:1 and> <t:identifier @9:5 a> <t:comma @9:6> <t:identifier @9:8 b>
+<t:keyword @10:1 xor> <t:identifier @10:5 a> <t:comma @10:6> <t:identifier @10:8 b>
+<t:keyword @11:1 add> <t:identifier @11:5 a> <t:comma @11:6> <t:identifier @11:8 b>
+<t:keyword @12:1 sub> <t:identifier @12:5 a> <t:comma @12:6> <t:identifier @12:8 b>
+<t:keyword @13:1 mul> <t:identifier @13:5 a> <t:comma @13:6> <t:identifier @13:8 b>
+<t:keyword @14:1 shr> <t:identifier @14:5 a> <t:comma @14:6> <t:identifier @14:8 b>
+<t:keyword @15:1 shl> <t:identifier @15:5 a> <t:comma @15:6> <t:identifier @15:8 b>
+<t:keyword @16:1 ror> <t:identifier @16:5 a> <t:comma @16:6> <t:identifier @16:8 b>
+<t:keyword @17:1 rol> <t:identifier @17:5 a> <t:comma @17:6> <t:identifier @17:8 b>
+<t:keyword @18:1 test> <t:identifier @18:6 a> <t:comma @18:7> <t:identifier @18:9 b>
+<t:keyword @19:1 cmp> <t:identifier @19:5 a> <t:comma @19:6> <t:identifier @19:8 b>
+<t:keyword @20:1 jc> <t:identifier @20:4 a>
+<t:keyword @21:1 jnc> <t:identifier @21:5 a>
+<t:keyword @22:1 jh> <t:identifier @22:4 a>
+<t:keyword @23:1 jnh> <t:identifier @23:5 a>
+<t:keyword @24:1 jl> <t:identifier @24:4 a>
+<t:keyword @25:1 jnl> <t:identifier @25:5 a>
+<t:keyword @26:1 jz> <t:identifier @26:4 a>
+<t:keyword @27:1 jnz> <t:identifier @27:5 a>
+<t:keyword @28:1 inv> <t:identifier @28:5 a>
+<t:keyword @29:1 inc> <t:identifier @29:5 a>
+<t:keyword @30:1 dec> <t:identifier @30:5 a>
+<t:keyword @31:1 poll> <t:identifier @31:6 dmaID>
+<t:keyword @32:1 sync> <t:identifier @32:6 dmaID>
+<t:keyword @33:1 lock> <t:identifier @33:6 dmaID>
+<t:keyword @34:1 unlock> <t:identifier @34:8 dmaID>
+<t:keyword @35:1 jmp> <t:identifier @35:5 a>
+<t:keyword @36:1 nop>
+<t:keyword @37:1 dmaCopy>
+<t:comment @39:1 // Then we check instruction variations>
+<t:keyword @40:1 mov> <t:register @40:5 r0> <t:comma @40:7> <t:number_literal @40:9 0> <t:comment @40:19 ; reg, val>
+<t:keyword @41:1 mov> <t:register @41:5 r1> <t:comma @41:7> <t:register @41:9 r2> <t:comment @41:19 ; reg, reg>
+<t:keyword @42:1 mov> <t:lbracket @42:5> <t:register @42:6 r3> <t:rbracket @42:8> <t:comma @42:9> <t:register @42:11 r4> <t:comment @42:19 ; [reg], reg>
+<t:keyword @43:1 mov> <t:register @43:5 r5> <t:comma @43:7> <t:lbracket @43:9> <t:register @43:10 r6> <t:rbracket @43:12> <t:comment @43:19 ; reg, [reg]>
+<t:keyword @44:1 mov> <t:lbracket @44:5> <t:hex_literal @44:6 0xFFFF> <t:rbracket @44:12> <t:comma @44:13> <t:number_literal @44:15 -59> <t:comment @44:19 ; [val], val>
+<t:keyword @45:1 mov> <t:lbracket @45:5> <t:hex_literal @45:6 0xABC0> <t:rbracket @45:12> <t:comma @45:13> <t:register @45:15 r7> <t:comment @45:19 ; [val], reg>
+<t:keyword @46:1 mov> <t:register @46:5 st> <t:comma @46:7> <t:lbracket @46:9> <t:hex_literal @46:10 0x12A0> <t:rbracket @46:16> <t:comment @46:19 ; reg, [val]>
+<t:keyword @48:1 jmp> <t:register @48:5 pc> <t:comment @48:13 ; reg>
+<t:keyword @49:1 jmp> <t:hex_literal @49:5 0x0120> <t:comment @49:13 ; val>
+<t:keyword @50:1 jmp> <t:lbracket @50:5> <t:hex_literal @50:6 0x33AB> <t:rbracket @50:12> <t:comment @50:13 ; [val]>
+<t:keyword @51:1 jmp> <t:lbracket @51:5> <t:register @51:6 hp> <t:rbracket @51:8> <t:comment @51:13 ; [reg]>
+<t:comment @53:1 // Finally we test labels>
+<t:identifier @54:1 label> <t:label_spec @54:6>

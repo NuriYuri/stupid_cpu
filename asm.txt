@@ -1,0 +1,171 @@
+Instructions:
+xxx 00000 | mov a, b (a = b)
+xxx 00001 | or a, b (a |= b)
+xxx 00010 | and a, b (a &= b)
+xxx 00011 | xor a, b (& ^= b)
+xxx 00100 | add a, b (a += b)
+xxx 00101 | sub a, b (a -= b)
+xxx 00110 | mul a, b (a *= b)
+xxx 00111 | shr a, b (010, 1 => 001)
+xxx 01000 | shl a, b (010, 1 => 100)
+xxx 01001 | ror a, b (001, 1 => 100 assuming register are 3 bits wide)
+xxx 01010 | rol a, b (100, 1 => 001 assuming register are 3 bits wide)
+xxx 01011 | test a, b (a & b => flags)
+xxx 01100 | cmp a, b  (a - b => flags)
+xxx 01101 | ???
+xxx 01110 | ???
+xxx 01111 | ???
+xx0 10000 | jc a (jump if carry flag on) <=> jg (jump if greater)
+xx0 10001 | jnc a (jump if carry flag off) <=> jle (jump if lower or equal)
+xx0 10010 | jh a (jump if high flag on)
+xx0 10011 | jnh a (jump if high flag not on)
+xx0 10100 | jl a (jump if low flag on)
+xx0 10101 | jnl a (jump if low flag off)
+xx0 10110 | jz a (jump if zero flag on) <=> je (jump equal)
+xx0 10111 | jnz a (jump if zero flag off) <=> jne (jump not equal)
+xx0 11000 | inv a (a = ~a)
+xx0 11001 | inc a (a += 1)
+xx0 11010 | dec a (a -= 1)
+xx0 11011 | poll dmaID (set zero flag = DMA ready)
+xx0 11100 | sync dmaID (wait for DMA to be ready)
+xx0 11101 | lock dmaID (lock a DMA, will also wait for DMA to be ready)
+xx0 11110 | unlock dmaID (unlock a DMA)
+xx0 11111 | jmp a (jump anyway)
+xx1 10000 | ???
+xx1 10001 | ???
+xx1 10010 | ???
+xx1 10011 | ???
+xx1 10100 | ???
+xx1 10101 | ???
+xx1 10110 | ???
+xx1 10111 | ???
+xx1 11000 | ???
+xx1 11001 | ???
+xx1 11010 | ???
+xx1 11011 | ???
+xx1 11100 | ???
+xx1 11101 | ???
+xx1 11110 | ???
+xx1 11111 | ???
+001 00000 | nop (no operation)
+001 00001 | dmaCopy (send payload from CPU DMA info to North Bridge in order to copy data between DMAs)
+
+Note: all instruction sets flags:
+carry = overflow right or left based on previous op
+high = most left bit on
+low = most right bit on
+zero = all bits 0
+
+Registers:
+r0, r1, r2, r3, r4, r5, r6, r7
+st (stack addr), pc (program counter), hp (heap addr)
+
+Processor type: 16bit using exclusively word data (16bit addr giving 16bit words (instructions are at least packed with their register info))
+
+16 instr with two operands x 7 = 112 // no addr x4 = 64 // if reg in addr x2 = 32
+12 instr with one operand x 4 = 48
+1 instr with zero operand
+
+Instr type:
+x reg, val
+x reg, reg
+x [reg], reg
+x reg, [reg]
+x [val], val ***
+x [val], reg ***
+x reg, [val] ***
+y reg
+y val
+y [val]
+y [reg]
+
+Codage instruction
+[variation 3b][instruction_type 5b]
+example:
+x reg, val   010 0xxxx
+x reg, reg   011 0xxxx
+x [reg], reg 111 0xxxx
+x reg, [reg] 000 0xxxx <- specific case because ptr is not precise enough and we cannot move val into val :)
+x [val], val 100 0xxxx
+x [val], reg 101 0xxxx
+x reg, [val] 110 0xxxx
+
+b0 = val/reg r
+b1 = val/reg l
+b2 = ptr
+Note: 001 cannot exist because we cannot move a register into a value, will most likely be used for no operand instructions
+
+y reg   010 1yyyy
+y val   000 1yyyy
+y [val] 100 1yyyy
+y [reg] 110 1yyyy
+
+nop = 001 00000
+
+Instruction format:
+x reg, val   = 010 0xxxx 0000 aaaa bbbb bbbb bbbb bbbb
+x reg, reg   = 011 0xxxx aaaa bbbb
+x [reg], reg = 111 0xxxx aaaa bbbb
+x reg, [reg] = 000 0xxxx aaaa bbbb
+x [val], val = 100 0xxxx 0000 0000 aaaa aaaa aaaa aaaa bbbb bbbb bbbb bbbb
+x [val], reg = 101 0xxxx 0000 bbbb aaaa aaaa aaaa aaaa
+x reg, [val] = 110 0xxxx 0000 aaaa bbbb bbbb bbbb bbbb
+
+y reg   = 010 1yyyy 0000 aaaa
+y val   = 000 1yyyy 0000 0000 aaaa aaaa aaaa aaaa
+y [val] = 100 1yyyy 0000 0000 aaaa aaaa aaaa aaaa
+y [reg] = 110 1yyyy 0000 aaaa
+
+nop =     001 00000 0000 0000
+dmaCopy = 001 00001 0000 0000
+
+DMAs: (DMA status are stored in a reserved memory from DMA)
+0 = CPU Data (time, GPIO, internal memory)
+1 = PRAM BANK (Program RAM = executable code)
+2 = RAM BANK 1
+3 = RAM BANK 2
+4 = RAM BANK 3
+5 = RAM BANK 4
+16 = VRAM 1
+17 = VRAM 2
+18 = VRAM 3
+19 = VRAM 4
+32 = SOUND RAM
+33 = Network Input
+34 = Network Output
+64 = ROM BANK 1
+...
+575 = ROM BANK 512
+
+DMA0 address mapping:
+0000 r0
+0001 r1
+0002 r2
+0003 r3
+0004 r4
+0005 r5
+0006 r6
+0007 r7
+0008 currentDmaId
+0009 copyDataSize
+000A copyDataSrcAddr
+000B copyDataDestAddr
+000C pc
+000D st
+000E hp
+000F copyDataDmaDest
+0010 GPIO1 Flags
+0011 GPIO2 Flags
+0012 GPIO1 State
+0013 GPIO2 State
+0014 GPIO1 Last state
+0015 GPIO2 Last state
+0016 year
+0017 month & day of the month
+0018 hour & minute
+0019 seconds
+001A miliseconds
+
+8000 CPU RAM
+....
+FFFF CPU RAM

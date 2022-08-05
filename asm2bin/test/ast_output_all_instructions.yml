@@ -1,0 +1,1058 @@
+--- !ruby/object:ASM2Bin::AST::Program
+labels: {}
+symbols:
+  :value: 0
+  :ptr: 0
+instructions:
+- !ruby/object:ASM2Bin::AST::Instruction
+  type: :nop
+- !ruby/object:ASM2Bin::AST::Instruction
+  type: :dmaCopy
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :or
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :or
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :or
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :or
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :or
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :or
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :or
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :and
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :and
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :and
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :and
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :and
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :and
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :and
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :xor
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :xor
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :xor
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :xor
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :xor
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :xor
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :xor
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :add
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :add
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :add
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :add
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :add
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :add
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :add
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :sub
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :sub
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :sub
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :sub
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :sub
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :sub
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :sub
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mul
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mul
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mul
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mul
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mul
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mul
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mul
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shr
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shr
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shr
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shr
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shr
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shr
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shr
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shl
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shl
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shl
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shl
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shl
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shl
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :shl
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :ror
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :ror
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :ror
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :ror
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :ror
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :ror
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :ror
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :rol
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :rol
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :rol
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :rol
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :rol
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :rol
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :rol
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :test
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :test
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :test
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :test
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :test
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :test
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :test
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :cmp
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :cmp
+  left: 1
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :cmp
+  left: 3
+  is_left_register: true
+  is_left_pointer: true
+  right: 4
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :cmp
+  left: 5
+  is_left_register: true
+  is_left_pointer: false
+  right: 6
+  is_right_register: true
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :cmp
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: :value
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :cmp
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+  right: 7
+  is_right_register: true
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :cmp
+  left: 12
+  is_left_register: true
+  is_left_pointer: false
+  right: :ptr
+  is_right_register: false
+  is_right_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jc
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jc
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jc
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jc
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnc
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnc
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnc
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnc
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jh
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jh
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jh
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jh
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnh
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnh
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnh
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnh
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jl
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jl
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jl
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jl
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnl
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnl
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnl
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnl
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jz
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jz
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jz
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jz
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnz
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnz
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnz
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jnz
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :inv
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :inv
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :inv
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :inv
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :inc
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :inc
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :inc
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :inc
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :dec
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :dec
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :dec
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :dec
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :poll
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :poll
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :poll
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :poll
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :sync
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :sync
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :sync
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :sync
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :lock
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :lock
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :lock
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :lock
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :unlock
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :unlock
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :unlock
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :unlock
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jmp
+  left: 13
+  is_left_register: true
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jmp
+  left: :value
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jmp
+  left: :ptr
+  is_left_register: false
+  is_left_pointer: true
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jmp
+  left: 14
+  is_left_register: true
+  is_left_pointer: true
