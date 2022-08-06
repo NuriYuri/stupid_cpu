@@ -175,7 +175,9 @@ module ASM2Bin
         return token.token.to_f if token.token.include?('e') || token.token.include?('.')
 
         return token.token.to_i
-      when :string, :symbol
+      when :string
+        return token.token.undump
+      when :symbol
         return token.token[1...-1]
       else
         return token.token
@@ -315,12 +317,16 @@ module ASM2Bin
 
       class WithValue < Instruction
         # Get the instruction left value
-        # @return [Integer, String]
+        # @return [Integer, Symbol]
         attr_reader :left
 
         # Tell if the left value is a pointer
         # @return [Boolean]
         attr_reader :is_left_pointer
+
+        # Tell if the left value is a register
+        # @return [Boolean]
+        attr_reader :is_left_register
 
         # Get the high bits of the instruction
         # @return [Integer]
@@ -388,12 +394,16 @@ module ASM2Bin
           }
         }
         # Get the instruction right value
-        # @return [Integer, String]
+        # @return [Integer, Symbol]
         attr_reader :right
 
         # Tell if the right value is a pointer
         # @return [Boolean]
         attr_reader :is_right_pointer
+
+        # Tell if the right value is a pointer
+        # @return [Boolean]
+        attr_reader :is_right_register
 
         # Get the high bits of the instruction
         # @return [Integer]

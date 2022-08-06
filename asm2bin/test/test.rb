@@ -1,8 +1,12 @@
 require_relative '../lexer'
 require_relative '../ast'
+require_relative '../sem'
 require 'yaml'
 
-data = File.read('ast_input_all_instructions.asm')
+data = File.read('sem_integers_input.asm')
 tokens = ASM2Bin::Lexer.new.compute_token(data).tokens
 program = ASM2Bin::AST.new.build(tokens)
-File.write('ast_output_all_instructions.yml', YAML.dump(program))
+semantic_program = Dir.chdir('../..') do
+  break ASM2Bin::Sem.new.parse(program)
+end
+File.write('sem_integers_output.yml', YAML.dump(semantic_program))

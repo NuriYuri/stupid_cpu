@@ -1,0 +1,136 @@
+--- !ruby/object:ASM2Bin::Sem::Program
+labels:
+  :label: 0
+symbols:
+  :padding: &1 !ruby/object:ASM2Bin::Sem::ROMData
+    data: "\0\x01"
+    rom_bank: 0
+    address: 0
+  :value: &2 !ruby/object:ASM2Bin::Sem::ROMData
+    data: "\0\x05"
+    rom_bank: 0
+    address: 1
+  :file_data: &3 !ruby/object:ASM2Bin::Sem::ROMData
+    data: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+      Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+      dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
+      congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est
+      eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa,
+      scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in
+      risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent
+      egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut
+      augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus
+      et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque
+      fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\nUt velit mauris,
+      egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar.
+      Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper
+      nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue.
+      Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae
+      elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+      Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor
+      tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper
+      felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis
+      lectus, et tristique ligula justo vitae magna.\n\nAliquam convallis sollicitudin
+      purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl,
+      ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo.
+      Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet.
+      Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt
+      tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum
+      augue, et ultricies lacus lorem varius purus. Curabitur eu amet.\n\0"
+    rom_bank: 0
+    address: 2
+  :regular_string: &4 !ruby/object:ASM2Bin::Sem::ROMData
+    data: string
+    rom_bank: 0
+    address: 1028
+  :symbol_but_actually_string: &5 !ruby/object:ASM2Bin::Sem::ROMData
+    data: symbol
+    rom_bank: 0
+    address: 1031
+  :string_with_interpolation: &6 !ruby/object:ASM2Bin::Sem::ROMData
+    data: "str\0\ning"
+    rom_bank: 0
+    address: 1034
+resources:
+- *1
+- *2
+- *3
+- *4
+- *5
+- *6
+instructions:
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 8
+  is_left_register: true
+  is_left_pointer: false
+  right: 64
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 15
+  is_left_register: true
+  is_left_pointer: false
+  right: 64
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 9
+  is_left_register: true
+  is_left_pointer: false
+  right: 1026
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 10
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 14
+  is_left_register: true
+  is_left_pointer: false
+  right: 1
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValues
+  type: :mov
+  left: 0
+  is_left_register: true
+  is_left_pointer: false
+  right: 2
+  is_right_register: false
+  is_right_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :poll
+  left: 64
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :sync
+  left: 64
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :lock
+  left: 64
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :unlock
+  left: 64
+  is_left_register: false
+  is_left_pointer: false
+- !ruby/object:ASM2Bin::AST::Instruction
+  type: :dmaCopy
+- !ruby/object:ASM2Bin::AST::Instruction::WithValue
+  type: :jmp
+  left: 0
+  is_left_register: false
+  is_left_pointer: false

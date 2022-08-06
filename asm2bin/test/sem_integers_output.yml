@@ -1,0 +1,41 @@
+--- !ruby/object:ASM2Bin::Sem::Program
+labels: {}
+symbols:
+  :positive_16: &1 !ruby/object:ASM2Bin::Sem::ROMData
+    data: !binary |-
+      //8=
+    rom_bank: 0
+    address: 0
+  :negative_16: &2 !ruby/object:ASM2Bin::Sem::ROMData
+    data: !binary |-
+      //8=
+    rom_bank: 0
+    address: 1
+  :positive_32: &3 !ruby/object:ASM2Bin::Sem::ROMData
+    data: !binary |-
+      /////w==
+    rom_bank: 0
+    address: 2
+  :negative_32: &4 !ruby/object:ASM2Bin::Sem::ROMData
+    data: !binary |-
+      gAAAAA==
+    rom_bank: 0
+    address: 4
+  :positive_64: &5 !ruby/object:ASM2Bin::Sem::ROMData
+    data: !binary |-
+      //////////8=
+    rom_bank: 0
+    address: 6
+  :negative_64: &6 !ruby/object:ASM2Bin::Sem::ROMData
+    data: !binary |-
+      gAAAAAAAAAA=
+    rom_bank: 0
+    address: 10
+resources:
+- *1
+- *2
+- *3
+- *4
+- *5
+- *6
+instructions: []
