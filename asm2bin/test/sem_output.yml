@@ -93,7 +93,7 @@ instructions:
   is_right_pointer: false
 - !ruby/object:ASM2Bin::AST::Instruction::WithValues
   type: :mov
-  left: 14
+  left: 11
   is_left_register: true
   is_left_pointer: false
   right: 1

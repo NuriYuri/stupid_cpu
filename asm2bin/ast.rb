@@ -245,7 +245,7 @@ module ASM2Bin
       # All the register values
       REGISTERS = {
         r0: 0, r1: 1, r2: 2, r3: 3, r4: 4, r5: 5, r6: 6, r7: 7, pc: 0xC, st: 0xD, hp: 0xE,
-        copyDataDmaDest: 0xF, currentDmaId: 8, copyDataSize: 9, copyDataSrcAddr: 0xA, copyDataDestAddr: 0xE
+        copyDataDmaDest: 0xF, currentDmaId: 8, copyDataSize: 9, copyDataSrcAddr: 0xA, copyDataDestAddr: 0xB
       }
       # Empty array (for performance)
       EMPTY_ARRAY = []
