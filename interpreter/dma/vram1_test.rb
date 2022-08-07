@@ -90,5 +90,52 @@ padding = "\x00" * 121_472
 vram.write(0, text_mem << attribute_memory << padding)
 wait
 
+# Test framerate
+t = Time.new
+sleep(0.01)
+vram.write(0xFFFC << 1, [0b000_1_100].pack('S>'))
+vram.write(0xFFFD << 1, "\xFF\xFF\xFF\xFF")
+32.times do
+  dt = Time.new - t
+  fps = (1.0 / dt).round(2)
+  text_mem = 24.times.map do |i|
+    next (i.odd? ? dt.to_s : "#{fps} FPS").ljust(320, ' ')
+  end.join
+  t = Time.new
+  vram.write(0, text_mem)
+end
+wait
+
+# Test framerate low update
+t = Time.new
+sleep(0.01)
+32.times do
+  dt = Time.new - t
+  fps = (1.0 / dt).round(2)
+  text_mem = 24.times.map do |i|
+    next (i.odd? ? dt.to_s : "#{fps} FPS").ljust(320, "\x00")
+  end.join
+  t = Time.new
+  vram.write(0, text_mem)
+end
+wait
+
+# Test framerate with only few char updated
+t = Time.new
+text_mem = 24.times.map { 320.times.map { ' ' } }.flatten.join
+vram.write(0, text_mem)
+sleep(0.01)
+320.times do |i|
+  dt = Time.new - t
+  fps = (1.0 / dt).round(2)
+  t = Time.new
+  vram.write(1, "#{fps} FPS".rjust(10, ' '))
+  j = i % 80
+  vram.write(j == 0 ? 320 + 80 : 319 + j, ' ')
+  vram.write(320 + j, '*')
+  sleep(0.01)
+end
+wait
+
 terminal.reset_color
 terminal.clear

@@ -9,12 +9,16 @@ module Interpreter
     # Create the new VRAM allowing text display
     # @param terminal [TerminalHelper]
     def initialize(terminal)
-      super(80 * 24 * 5 * 75) # 80x24 * (4 + 1) for text+attributes, * 75 for refresh rate
+      super(80 * 24 * 5 * 6) # 80x24 * (4 + 1) for text+attributes, * 6 for refresh rate (best got was 8FPS for single color full text)
       @terminal = terminal
       # @type [Array<Integer>]
       @line_addresses = 24.times.map { |i| i * 320 } # 80 * 4
+      # @type [Array<Range>]
+      @line_address_ranges = 24.times.map { |i| (i * 320)...(i.next * 320) }
       # @type [Array<Integer>]
       @attributes_addresses = 24.times.map { |i| 7680 + i * 80 }
+      # @type [Array<Range>]
+      @attributes_address_ranges = 24.times.map { |i| (7680 + i * 80)...(7680 + i.next * 80) }
       @current_attribute_address = 0xFFFC << 1
       @cursor_x_address = 0xFFFD << 1
       @cursor_y_address = 0xFFFE << 1
@@ -64,12 +68,17 @@ module Interpreter
     # @param data_range [Range]
     def write_process(address, data, data_range)
       # Select all lines affected by data range
-      line_indexes = @line_addresses.each_index.select do |i|
-        next data_range.include?(@line_addresses[i]) || data_range.include?((@line_addresses[i + 1] || 7680) - 1)
+      line_indexes = @line_address_ranges.each_index.select do |i|
+        next data_range.include?(@line_address_ranges[i].begin) || data_range.include?(@line_address_ranges[i].end) ||
+          @line_address_ranges[i].cover?(data_range)
+      end
+      line_attribute_indexes = @attributes_address_ranges.each_index.select do |i|
+        next data_range.include?(@attributes_address_ranges[i].begin) || data_range.include?(@attributes_address_ranges[i].end) ||
+          @attributes_address_ranges[i].cover?(data_range)
       end
       # Write all the line affected by data range
       line_indexes.each do |i|
-        write_line(address, data, i)
+        write_line(address, data, i, line_attribute_indexes.include?(i))
       end
       # Write rest of data starting of attribute addresses
       new_address = [data_range.begin, @attributes_addresses.first].max
@@ -86,7 +95,8 @@ module Interpreter
     # @param address [Integer]
     # @param data [String]
     # @param line_index [Integer]
-    def write_line(address, data, line_index)
+    # @param should_not_draw_line [Boolean] if the line shouldn't be drawn because attribute will get updated
+    def write_line(address, data, line_index, should_not_draw_line)
       line_address = @line_addresses[line_index]
       current_attribute = dma_read(@current_attribute_address, 2).unpack1('S>') & 0xFF
       # If we're not writing from beginning of the line
@@ -101,6 +111,7 @@ module Interpreter
         dma_write(@attributes_addresses[line_index] + old_data.size, current_attribute.chr * data_size) if data_size > 0
         # Write text data
         dma_write(address, new_data)
+        return draw_few_char(old_data.size, line_index, new_data, current_attribute) unless should_not_draw_line
       else
         # Get data to write on current line
         new_data = data[line_address - address, 320]
@@ -109,8 +120,14 @@ module Interpreter
         dma_write(@attributes_addresses[line_index], current_attribute.chr * data_size)
         # Write text data
         dma_write(line_address, new_data)
+        unless should_not_draw_line
+          if new_data.size < 80
+            draw_few_char(0, line_index, new_data, current_attribute, clear_line: true)
+          else
+            draw_whole_line(line_index)
+          end
+        end
       end
-      draw_whole_line(line_index)
     end
 
     # Clear the screen
@@ -124,6 +141,19 @@ module Interpreter
       @terminal.hide_cursor
       24.times { |i| draw_whole_line(i) }
       reset_cursor_position
+    end
+
+    # Draw only few char on the line
+    # @param x [Integer] x position of chars to draw
+    # @param y [Integer] y position of chars to draw
+    # @param text [String] chars to draw
+    # @param current_attribute [Integer] attribute of the text to draw
+    # @param clear_line [Boolean] if the line should be cleared
+    def draw_few_char(x, y, text, current_attribute, clear_line: false)
+      @terminal.set_cursor_position(x, y + 1) # y = 0 => line = 1 in terminal emulation
+      text_size = (text.index(CONTROL_CHARACTERS) || 80).clamp(0, 80)
+      display_text_to_terminal(text[0, text_size], current_attribute)
+      @terminal.clear_rest_of_the_line if clear_line
     end
 
     # Draw a whole line
