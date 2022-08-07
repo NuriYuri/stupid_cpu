@@ -1,0 +1,28 @@
+16 = VRAM 1
+17 = VRAM 2
+18 = VRAM 3
+19 = VRAM 4
+
+Modes:
+- Text
+- Video
+
+Text Mode:
+Display type: 80x24 characters
+Supported encoding: UTF-8 (no emoji even though emulation might display them)
+Allocated memory for text display: 7680 bytes (3840 words) + 1920 bytes (960 words) 
+Memory setting:
+0000 -> 0EFF : Text buffer
+  0000 -> 009F : Line 1
+  00A0 -> 013F : Line 2
+  ...
+0F00 -> 12BF : Attribute buffer (color)
+
+Attribute structure: 0bbblfff => bbb = background color (0-7); l = forground color is light; fff = forground color (0-7)
+
+FFFC : Current attribute (used to fill the attribute memory when the text is written in the text memory)
+FFFD : Cursor X position
+FFFE : Cursor Y position
+FFFF : Memory Mode (0 = Text Mode)
+
+Note: ASCII control characters are interpreted as \x00 in VRAM

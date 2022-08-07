@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Helper allowing to manipulate terminal stuff
 class TerminalHelper
   # Create a new Terminal Helper which manipulate a specific IO output
@@ -101,10 +103,12 @@ class TerminalHelper
   # @param id_background [Integer] ID of the color (0 = black, 1 = red, 2 = green, 4 = blue, ...)
   # @param is_light [Boolean] if the color is lighten
   def set_color_with_background(id_color, id_background, is_light: false)
+    return set_color(id_color, is_light: is_light) if id_background == 0 && !is_light # Some limitations in Windows ?
+
     if is_light
       @io.write("\033[4#{id_background & 7};1;3#{id_color & 7}m")
     else
-      @io.write("\033[4#{id_background & 7};3#{id_color & 0x07}m")
+      @io.write("\033[4#{id_background & 7};3#{id_color & 7}m")
     end
   end
 end

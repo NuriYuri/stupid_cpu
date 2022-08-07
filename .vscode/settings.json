@@ -1,6 +1,8 @@
 {
   "cSpell.words": [
     "binread",
-    "bytesize"
+    "bytesize",
+    "ljust",
+    "VRAM"
   ]
 }
