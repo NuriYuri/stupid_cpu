@@ -4,16 +4,22 @@ require_relative 'dma/dma'
 require_relative 'dma/cpu_ram'
 require_relative 'dma/vram1'
 require_relative 'helpers/terminal'
+require_relative 'instruction_decoder'
 
 module Interpreter
   # Class representing the CPU running the program
   #
   # @note this version is badly implemented (just want to see some stuff quick)
   class CPU
+    # Get the instruction decoder
+    # @return [InstructionDecoder]
+    attr_reader :decoder
+
     def initialize(program_path)
       init_cpu_memory
       init_north_bridge
       load_program(program_path)
+      @decoder = InstructionDecoder.new(@pram, @registers)
     end
 
     private
